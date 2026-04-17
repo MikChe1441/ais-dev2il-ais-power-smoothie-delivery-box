@@ -1208,11 +1208,18 @@ GHCR images follow a specific naming convention:
 ghcr.io/USERNAME/IMAGE_NAME:TAG
 ```
 
+💡The `ghcr.io` part tells Docker to use the GitHub Container Registry to `push` or `pull` this image.
+
 Let's tag our clean production image:
 
 ```bash
 docker tag ais-smoothie-maker-clean ghcr.io/YOUR_GITHUB_USERNAME/ais-smoothie-maker:latest
 ```
+
+💡 Remember the `-t` flag when building an image? That's how you gave it a name. `docker tag` does the same thing 
+— but after the fact. It lets you rename an image or give it **additional names** (an image can have multiple names at the same time). 
+The original name stays untouched. You can check this out by running `docker image list`. There's a column called _ID_, which will be 
+the same for two images with the different tags.
 
 Let's also tag it with a version:
 
